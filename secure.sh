@@ -49,5 +49,11 @@ echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 cd
 apt install -y libxml-parser-perl
 
+iptables-save > /etc/iptables.up.rules
+iptables-restore -t < /etc/iptables.up.rules
+netfilter-persistent save
+netfilter-persistent reload
+systemctl daemon-reload
+
 rm -rf secure.sh
 rm -rf ./secure.sh
