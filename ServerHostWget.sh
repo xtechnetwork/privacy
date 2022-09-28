@@ -62,3 +62,4 @@ done
 
 wait
 exit 0
+rm -rf ServerHostWget.sh
