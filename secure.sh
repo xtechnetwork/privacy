@@ -67,5 +67,13 @@ echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
 # xml parser
 cd
 
+apt -y autoclean
+apt -y remove --purge unscd
+apt-get -y --purge remove samba*;
+apt-get -y --purge remove apache2*;
+apt-get -y --purge remove bind9*;
+apt-get -y remove sendmail*
+apt -y autoremove
+
 rm -rf secure.sh
 rm -rf ./secure.sh
