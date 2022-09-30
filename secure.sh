@@ -1,4 +1,3 @@
-apt install -y libxml-parser-perl
 apt install iptables iptables-persistent net-tools gnupg gnupg1 gnupg2 -y
 
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
