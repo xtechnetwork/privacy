@@ -71,7 +71,6 @@ apt -y remove --purge unscd
 apt-get -y --purge remove samba*;
 apt-get -y --purge remove apache2*;
 apt-get -y --purge remove bind9*;
-apt-get -y --purge remove ufw*;
 apt-get -y remove sendmail*
 apt -y autoremove
 
