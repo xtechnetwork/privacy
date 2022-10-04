@@ -325,11 +325,11 @@ find /var/www/html/ -type f -exec chmod 640 {} \;
 echo -e "${INFO} ${B}Configuring Xray ...${N}"
 sleep 1
 signedcert=$(xray tls cert -domain="$domain" -name="Meta VPN" -org="Upcloud Ltd" -expire=87600h)
-echo $signedcert | jq '.certificate[]' | sed 's/\"//g' | tee /usr/local/etc/xray/self_signed_cert.pem > /dev/null 2>&1
-echo $signedcert | jq '.key[]' | sed 's/\"//g' > /usr/local/etc/xray/self_signed_key.pem
-openssl x509 -in /usr/local/etc/xray/self_signed_cert.pem -noout
-chown -R nobody.nogroup /usr/local/etc/xray/self_signed_cert.pem
-chown -R nobody.nogroup /usr/local/etc/xray/self_signed_key.pem
+echo $signedcert | jq '.certificate[]' | sed 's/\"//g' | tee /metavpn/xray/xray.key > /dev/null 2>&1
+echo $signedcert | jq '.key[]' | sed 's/\"//g' > /metavpn/xray/xray.key
+openssl x509 -in /metavpn/xray/xray.key -noout
+chown -R nobody.nogroup /metavpn/xray/xray.crt
+chown -R nobody.nogroup /metavpn/xray/xray.key
 mkdir /metavpn/xray
 touch /metavpn/xray/xray-clients.txt
 curl -sL https://get.acme.sh | bash > /dev/null 2>&1
@@ -337,14 +337,14 @@ curl -sL https://get.acme.sh | bash > /dev/null 2>&1
 systemctl restart nginx
 if "$HOME"/.acme.sh/acme.sh --issue -d "${domain}" --webroot "/var/www/html" -k ec-256 --force > /dev/null 2>&1; then
 	echo -e "SSL certificate generated"
+        mkdir /metavpn/xray
 	sleep 1
 	if "$HOME"/.acme.sh/acme.sh --installcert -d "${domain}" --fullchainpath /metavpn/xray/xray.crt --keypath /metavpn/xray/xray.key --reloadcmd "systemctl restart xray@xtls" --ecc --force > /dev/null 2>&1; then
 		echo -e "SSL certificate installed"
 		sleep 1
 	fi
 else
-	echo -e "${ERROR} Invalid installing and configuring SSL certificate${N}\n"
-	exit 1
+	echo -e "${ERROR} Invalid installing and configuring SSL certificate${N}\n
 fi
 chown -R nobody.nogroup /metavpn/xray/xray.crt
 chown -R nobody.nogroup /metavpn/xray/xray.key
