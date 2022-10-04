@@ -277,17 +277,6 @@ sleep 1
 # Install BadVPN UDPGW
 echo -e "${INFO} ${B}Installing BadVPN UDPGW ...${N}"
 sleep 1
-wget -O badvpn.zip "${repo}files/badvpn.zip" > /dev/null 2>&1
-unzip badvpn.zip > /dev/null 2>&1
-mkdir badvpn-master/build-badvpn
-cd badvpn-master/build-badvpn
-cmake .. -DBUILD_NOTHING_BY_DEFAULT=1 -DBUILD_UDPGW=1 > /dev/null 2>&1
-make install > /dev/null 2>&1
-cd
-rm -rf badvpn-master
-rm -f badvpn.zip
-screen -AmdS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300
-check_screen badvpn
 
 # Install Xray
 echo -e "${INFO} ${B}Installing Xray ...${N}"
