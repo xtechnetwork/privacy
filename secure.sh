@@ -1,4 +1,4 @@
-locale-gen en_US
+
 ln -sf /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
 
 apt -y install vnstat iptables iptables-persistent
