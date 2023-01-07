@@ -96,3 +96,4 @@ RULES
 iptables-restore -t < /etc/iptables.up.rules
 
 rm -rf ip2l.sh
+sudo reboot 
