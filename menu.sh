@@ -2,7 +2,7 @@
 # =========================================
 # Quick Setup | Script Setup Manager
 # Edition : Stable Edition V1.0
-# Auther  : NevermoreSSH
+# Auther  : Xtech
 # (C) Copyright 2022
 # =========================================
 P='\e[0;35m'
@@ -46,22 +46,6 @@ export LIGHT='\033[0;37m'
 export NC='\033[0m'
 clear
 domain=$(cat /root/domain)
-
-# // nginx status
-nginx=$( systemctl status nginx | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
-if [[ $nginx == "running" ]]; then
-    status_nginx="${GREEN}ON${NC}"
-else
-    status_nginx="${RED}OFF${NC}"
-fi
-
-# // xray status
-xray=$( systemctl status xray | grep Active | awk '{print $3}' | sed 's/(//g' | sed 's/)//g' )
-if [[ $xray == "running" ]]; then
-    status_xray="${GREEN}ON${NC}"
-else
-    status_xray="${RED}OFF${NC}"
-fi
 
 # // script version
 myver="$(cat /home/ver)"
@@ -116,7 +100,7 @@ echo -e " IP Address         :  $IPVPS"
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
 echo -e "     [ XRAY-CORE${NC} : ${status_xray} ]   [ NGINX${NC} : ${status_nginx} ]"
 echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m"
-echo -e "      \033[1;37mMULTIPORT WEBSOCKET BY NevermoreSSH\033[0m"
+echo -e "      \033[1;37mXtech Xray Mini Script Premium\033[0m"
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
 echo -e " Daily Data Usage   :  ${yell}$daily_usage${N}"
 echo -e " Monthly Data Usage :  ${yell}$monthly_usage${N}"
@@ -157,8 +141,8 @@ fi
 echo -e " \033[1;37mType [ x ] To Exit From Menu \033[0m"
 echo ""
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
-echo -e " Version       :\033[1;36m Multiport Websocket $myver\e[0m"
-echo -e " Client Name   : Nevermore"
+echo -e " Version       :\033[1;36m Xray Mini Lite $myver\e[0m"
+echo -e " Client Name   : Xtech"
 echo -e " Expiry Script : 2077-12-31"
 echo -e " Status Script : ${G}Lifetime${NC}"
 echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m"
