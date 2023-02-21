@@ -98,7 +98,7 @@ echo -e " VPN Core           :  XRAY-CORE"
 echo -e " Domain             :  $domain"
 echo -e " IP Address         :  $IPVPS"
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
-echo -e "     [ XRAY-CORE${NC} : ${status_xray} ]   [ NGINX${NC} : ${status_nginx} ]"
+echo -e " [ Sys Tweak${NC} : Active ] [ AdsBlock${NC} : Active ]"
 echo -e "\e[36m╘════════════════════════════════════════════╛\033[0m"
 echo -e "      \033[1;37mXtech Xray Mini Script Premium\033[0m"
 echo -e "\e[36m╒════════════════════════════════════════════╕\033[0m"
@@ -152,22 +152,21 @@ case $opt in
 1) clear ; menu-vless ; read -n1 -r -p "Press any key to continue..." ; menu ;;
 2) clear ; menu-xrt ; read -n1 -r -p "Press any key to continue..." ; menu ;;
 3) clear ; ins-helium ; read -n1 -r -p "Press any key to continue..." ; menu ;;
-4) clear ; bbr ; menu ;;
-5) clear ; helium ; menu ;;
-6) clear ; dns ; echo "" ; menu ;;
-7) clear ; nf ; echo "" ; read -n1 -r -p "Press any key to continue..." ; menu ;;
-8) clear ; add-host ; menu ;;
-9) clear ; certxray ; menu ;;
-10) clear ; status ; read -n1 -r -p "Press any key to continue..." ; menu ;;
-11) clear ; info ; read -n1 -r -p "Press any key to continue..." ; menu ;;
-12) clear ; restart ; menu ;;
-13) clear ; speedtest ; echo "" ; read -n1 -r -p "Press any key to continue..." ; menu ;;
-14) clear ; htop ; echo "" ; read -n1 -r -p "Press any key to continue..." ; menu ;;
-15) clear ; vnstat ; echo "" ; read -n1 -r -p "Press any key to continue..." ; menu ;;
-16) clear ; backup ; read -n1 -r -p "Press any key to continue..." ; menu ;;
-17) clear ; restore ; menu ;;
-18) clear ; reboot ;;
-19) clear ; $up2u ; read -n1 -r -p "Press any key to continue..." ; menu ;;
+4) clear ; helium ; menu ;;
+5) clear ; dns ; menu ;;
+6) clear ; nf ; echo "" ; menu ;;
+7) clear ; add-host ; echo "" ; read -n1 -r -p "Press any key to continue..." ; menu ;;
+8) clear ; certxray ; menu ;;
+9) clear ; status ; menu ;;
+10) clear ; port ; read -n1 -r -p "Press any key to continue..." ; menu ;;
+11) clear ; restart ; read -n1 -r -p "Press any key to continue..." ; menu ;;
+12) clear ; speedtest ; menu ;;
+13) clear ; htop ; echo "" ; read -n1 -r -p "Press any key to continue..." ; menu ;;
+14) clear ; vnstat ; echo "" ; read -n1 -r -p "Press any key to continue..." ; menu ;;
+15) clear ; backup ; echo "" ; read -n1 -r -p "Press any key to continue..." ; menu ;;
+16) clear ; restore ; read -n1 -r -p "Press any key to continue..." ; menu ;;
+17) clear ; reboot ; menu ;;
+18) clear ; $up2u ; read -n1 -r -p "Press any key to continue..." ; menu ;;
 00 | 0) clear ; menu ;;
 x | X) exit ;;
 *) clear ; menu ;;
