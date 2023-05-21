@@ -2,7 +2,7 @@
 
 wget -O - https://swupdate.openvpn.net/repos/repo-public.gpg|apt-key add -
 sleep 2
-echo "deb http://build.openvpn.net/debian/openvpn/release/2.4 buster main" > /etc/apt/sources.list.d/openvpn-aptrepo.list
+echo "deb http://build.openvpn.net/debian/openvpn/release/2.4 stretch main" > /etc/apt/sources.list.d/openvpn-aptrepo.list
 #Requirement
 apt update
 apt upgrade -y
@@ -77,7 +77,7 @@ wget -O /etc/issue.net "https://raw.githubusercontent.com/wangzki03/premscript/m
 sed -i 's@#Banner@Banner@g' /etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 service ssh restart
-service dropbear restart
+
 
 #install OpenVPN
 cp -r /usr/share/easy-rsa/ /etc/openvpn
